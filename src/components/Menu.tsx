@@ -136,7 +136,9 @@ const Menu = () => {
                                 width={20}
                                 height={20}
                             />
-                            <span>{item.label}</span>
+                            <span className="hidden lg:block">
+                                {item.label}
+                            </span>
                         </Link>
                     ))}
                 </div>
