@@ -14,12 +14,12 @@ const config: Config = {
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
             colors: {
-                lamaSky: "#C3EBFA",
-                lamaSkyLight: "#EDF9FD",
-                lamaPurple: "#6C63FF",
-                lamaPurpleLight: "#E5E3FF",
-                lamaYellow: "#FFC107",
-                lamaYellowLight: "#FFF9DB",
+                lamaSky: "#A4D8F0", // Fundo suave, moderno, mais clean
+                lamaSkyLight: "#E9F4FC", // Fundo mais claro, quase branco para um contraste suave
+                lamaPurple: "#FFB84D", // Roxo mais escuro, ideal para detalhes ou botões
+                lamaPurpleLight: "#C8A2FF", // Roxo claro, ótimo para hover ou destaque sutil
+                lamaYellow: "#A7C7E7", // Amarelo mais suave e sofisticado
+                lamaYellowLight: "#FFF3D1", // Amarelo claro, bem suave para fundos e efeitos
             },
         },
     },
