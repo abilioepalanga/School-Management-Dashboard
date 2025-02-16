@@ -12,7 +12,7 @@ const NavBar = () => {
                 />
             </div>
             {/*Icons And User*/}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 justify-end w-full">
                 {/*Message*/}
                 <div className="bg-white rounded-full w-7 h-7 flex items-center justify-center cursor-pointer">
                     <Image
