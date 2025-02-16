@@ -43,6 +43,13 @@ const NavBar = () => {
                         Admin
                     </span>
                 </div>
+                <Image
+                    src="/avatar.png"
+                    alt="avatar"
+                    width={36}
+                    height={36}
+                    className="rounded-full"
+                />
             </div>
         </div>
     );
