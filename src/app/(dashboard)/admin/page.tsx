@@ -12,6 +12,10 @@ const AdminPage = () => {
                     <UserCard type="parent" />
                     <UserCard type="staff" />
                 </div>
+                {/*Middle Charts*/}
+                <div className="flex gap-4 flex-col lg:flex-row"></div>
+                {/*Botton Charts*/}
+                <div></div>
             </div>
             {/*Right*/}
             <div className="w-full lg:w-1/3">Right</div>
