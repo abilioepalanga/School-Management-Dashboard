@@ -1,12 +1,18 @@
 "use client";
 import Image from "next/image";
-import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
+import {
+    PieChart,
+    Pie,
+    Cell,
+    ResponsiveContainer,
+    Tooltip,
+    Legend,
+} from "recharts";
 import { motion } from "framer-motion";
 
 const data = [
-    { name: "Total", count: 106, fill: "#E5E7EB" },
-    { name: "Girls", count: 55, fill: "#FACC15" },
-    { name: "Boys", count: 50, fill: "#38BDF8" },
+    { name: "Girls", count: 25, color: "#FACC15" },
+    { name: "Boys", count: 50, color: "#38BDF8" },
 ];
 
 const CountChart = () => {
@@ -33,41 +39,38 @@ const CountChart = () => {
             {/* Chart */}
             <div className="relative w-full h-[75%]">
                 <ResponsiveContainer>
-                    <RadialBarChart
-                        cx="50%"
-                        cy="50%"
-                        innerRadius="40%"
-                        outerRadius="100%"
-                        barSize={20}
-                        data={data}
-                    >
-                        <RadialBar background dataKey="count" />
-                    </RadialBarChart>
+                    <PieChart>
+                        <Pie
+                            data={data}
+                            cx="50%"
+                            cy="50%"
+                            innerRadius={70}
+                            outerRadius={100}
+                            fill="#8884d8"
+                            paddingAngle={3}
+                            dataKey="count"
+                            label={({ name, percent }) =>
+                                `${name} ${(percent * 100).toFixed(0)}%`
+                            }
+                        >
+                            {data.map((entry, index) => (
+                                <Cell
+                                    key={`cell-${index}`}
+                                    fill={entry.color}
+                                />
+                            ))}
+                        </Pie>
+                        <Tooltip />
+                        <Legend />
+                    </PieChart>
                 </ResponsiveContainer>
                 <Image
                     src="/maleFemale.png"
-                    alt=""
+                    alt="Icon"
                     width={50}
                     height={50}
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 />
-            </div>
-            {/* Legend */}
-            <div className="flex justify-around mt-4">
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#38BDF8] rounded-full" />
-                    <div>
-                        <h1 className="font-bold text-gray-700">1,234</h1>
-                        <h2 className="text-xs text-gray-500">Boys (55%)</h2>
-                    </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#FACC15] rounded-full" />
-                    <div>
-                        <h1 className="font-bold text-gray-700">1,234</h1>
-                        <h2 className="text-xs text-gray-500">Girls (45%)</h2>
-                    </div>
-                </div>
             </div>
         </motion.div>
     );
