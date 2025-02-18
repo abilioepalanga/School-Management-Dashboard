@@ -87,3 +87,4 @@ const FinanceChart = () => {
                         strokeWidth={3}
                         fill="url(#expenseGradient)"
                     />
+                    export default FinanceChart;
