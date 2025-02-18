@@ -42,3 +42,15 @@ const FinanceChart = () => {
                     height={20}
                 />
             </div>
+            {/* Chart */}
+            <ResponsiveContainer width="100%" height={300}>
+                <AreaChart
+                    data={data}
+                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                >
+                    {/* Chart content will go here */}
+                </AreaChart>
+            </ResponsiveContainer>
+        </div>
+    );
+};
