@@ -23,10 +23,11 @@ const data = [
 const AttendanceChart = () => {
     return (
         <motion.div
-            className="bg-gradient-to-br from-white to-gray-100 shadow-lg rounded-2xl p-6 h-full"
+            className="bg-gradient-to-br from-white to-gray-100 shadow-lg rounded-2xl p-6 h-full transition-all duration-300"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.08, filter: "brightness(0.9)" }} // Efeito de hover no card
         >
             <div className="flex justify-between items-center mb-4">
                 <h1 className="text-xl font-bold text-gray-700">
