@@ -13,7 +13,7 @@ const events = [
     {
         id: 1,
         title: "Parent Meeting",
-        time: "10:00 AM - 12:00 PM",
+        time: "10:00 AM - 12:00 AM",
         description:
             "Meeting to discuss students' academic progress and other important school updates.",
     },
