@@ -9,6 +9,7 @@ import {
     Legend,
 } from "recharts";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const data = [
     { name: "Girls", count: 25, color: "#FACC15" },
@@ -18,10 +19,11 @@ const data = [
 const CountChart = () => {
     return (
         <motion.div
-            className="bg-gradient-to-br from-white to-gray-100 shadow-lg rounded-2xl w-full h-full p-6"
+            className="bg-gradient-to-br from-white to-gray-100 shadow-lg rounded-2xl w-full h-full p-6 transition-all duration-300"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.08, filter: "brightness(0.9)" }} // Efeito no card
         >
             {/* Title */}
             <div className="flex justify-between items-center mb-4">
@@ -37,7 +39,7 @@ const CountChart = () => {
                 />
             </div>
             {/* Chart */}
-            <div className="relative w-full h-[75%]">
+            <div className="relative w-full h-[300px]">
                 <ResponsiveContainer>
                     <PieChart>
                         <Pie
@@ -46,12 +48,20 @@ const CountChart = () => {
                             cy="50%"
                             innerRadius={70}
                             outerRadius={100}
-                            fill="#8884d8"
                             paddingAngle={3}
                             dataKey="count"
-                            label={({ name, percent }) =>
-                                `${name} ${(percent * 100).toFixed(0)}%`
-                            }
+                            label={({ name, percent, x, y, index }) => (
+                                <text
+                                    x={x + (x > 50 ? 10 : -10)}
+                                    y={y + (y > 50 ? 10 : -10)}
+                                    fill={data[index].color}
+                                    textAnchor="middle"
+                                    dominantBaseline="central"
+                                    className="text-xs font-bold"
+                                >
+                                    {`${name} ${(percent * 100).toFixed(0)}%`}
+                                </text>
+                            )}
                         >
                             {data.map((entry, index) => (
                                 <Cell
