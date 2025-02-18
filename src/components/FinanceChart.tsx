@@ -42,28 +42,52 @@ const FinanceChart = () => {
                     height={20}
                 />
             </div>
+
             {/* Chart */}
             <ResponsiveContainer width="100%" height={300}>
                 <AreaChart
                     data={data}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                 >
-                    {/* Chart content will go here */}
-                </AreaChart>
-            </ResponsiveContainer>
-        </div>
-    );
-};
-<defs>
-    <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="5%" stopColor="#34D399" stopOpacity={0.8} />
-        <stop offset="95%" stopColor="#34D399" stopOpacity={0.2} />
-    </linearGradient>
-    <linearGradient id="expenseGradient" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="5%" stopColor="#EF4444" stopOpacity={0.8} />
-        <stop offset="95%" stopColor="#EF4444" stopOpacity={0.2} />
-    </linearGradient>
-</defs>;
+                    <defs>
+                        <linearGradient
+                            id="incomeGradient"
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="1"
+                        >
+                            <stop
+                                offset="5%"
+                                stopColor="#34D399"
+                                stopOpacity={0.8}
+                            />
+                            <stop
+                                offset="95%"
+                                stopColor="#34D399"
+                                stopOpacity={0.2}
+                            />
+                        </linearGradient>
+                        <linearGradient
+                            id="expenseGradient"
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="1"
+                        >
+                            <stop
+                                offset="5%"
+                                stopColor="#EF4444"
+                                stopOpacity={0.8}
+                            />
+                            <stop
+                                offset="95%"
+                                stopColor="#EF4444"
+                                stopOpacity={0.2}
+                            />
+                        </linearGradient>
+                    </defs>
+
                     <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.3} />
                     <XAxis
                         dataKey="name"
@@ -73,6 +97,7 @@ const FinanceChart = () => {
                     <YAxis tick={{ fill: "#6b7280" }} tickLine={false} />
                     <Tooltip />
                     <Legend verticalAlign="top" height={36} />
+
                     <Area
                         type="monotone"
                         dataKey="income"
@@ -87,4 +112,10 @@ const FinanceChart = () => {
                         strokeWidth={3}
                         fill="url(#expenseGradient)"
                     />
-                    export default FinanceChart;
+                </AreaChart>
+            </ResponsiveContainer>
+        </div>
+    );
+};
+
+export default FinanceChart;
