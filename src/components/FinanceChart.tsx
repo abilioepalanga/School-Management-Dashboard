@@ -73,3 +73,17 @@ const FinanceChart = () => {
                     <YAxis tick={{ fill: "#6b7280" }} tickLine={false} />
                     <Tooltip />
                     <Legend verticalAlign="top" height={36} />
+                    <Area
+                        type="monotone"
+                        dataKey="income"
+                        stroke="#34D399"
+                        strokeWidth={3}
+                        fill="url(#incomeGradient)"
+                    />
+                    <Area
+                        type="monotone"
+                        dataKey="expense"
+                        stroke="#EF4444"
+                        strokeWidth={3}
+                        fill="url(#expenseGradient)"
+                    />
