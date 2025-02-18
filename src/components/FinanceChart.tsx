@@ -64,3 +64,12 @@ const FinanceChart = () => {
         <stop offset="95%" stopColor="#EF4444" stopOpacity={0.2} />
     </linearGradient>
 </defs>;
+                    <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.3} />
+                    <XAxis
+                        dataKey="name"
+                        tick={{ fill: "#6b7280" }}
+                        tickLine={false}
+                    />
+                    <YAxis tick={{ fill: "#6b7280" }} tickLine={false} />
+                    <Tooltip />
+                    <Legend verticalAlign="top" height={36} />
