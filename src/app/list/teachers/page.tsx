@@ -103,9 +103,20 @@ const TeacherListPage = () => {
                                 height={14}
                             />
                         </button>
+                        {role === "admin" && (
+                            <FormModal table="teacher" type="create" />
+                        )}
                     </div>
                 </div>
             </div>
+            {/* LIST */}
+            <Table
+                columns={columns}
+                renderRow={renderRow}
+                data={teachersData}
+            />
+            {/* PAGINATION */}
+            <Pagination />
         </div>
     );
 };
