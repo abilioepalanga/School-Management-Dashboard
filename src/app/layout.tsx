@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Prizley Dev School Management Dashboard",
-    description: "Next.js School Management System",
+    title: "IPM School",
+    description: "IPM School Management System",
 };
 
 export default function RootLayout({
