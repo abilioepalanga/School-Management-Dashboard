@@ -8,6 +8,10 @@ const TeacherPage = () => {
             <div className="w-full xl:w-2/3">
                 <div className="h-full bg-white p-4 rounded-md">
                     <h1 className="text-xl font-semibold">Schedule</h1>
+                    <p className="text-sm text-gray-500">
+                        This is the schedule for Teacher:{""}
+                        <span className="text-blue-900"> Pedro da Silva</span>
+                    </p>
                     <BigCalendar />
                 </div>
             </div>
