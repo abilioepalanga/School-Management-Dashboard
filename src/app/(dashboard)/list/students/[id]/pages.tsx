@@ -17,3 +17,33 @@ type Student = {
     class: string;
     address: string;
 };
+const columns = [
+    {
+        header: "Info",
+        accessor: "info",
+    },
+    {
+        header: "Student ID",
+        accessor: "studentId",
+        className: "hidden md:table-cell",
+    },
+    {
+        header: "Grade",
+        accessor: "grade",
+        className: "hidden md:table-cell",
+    },
+    {
+        header: "Phone",
+        accessor: "phone",
+        className: "hidden lg:table-cell",
+    },
+    {
+        header: "Address",
+        accessor: "address",
+        className: "hidden lg:table-cell",
+    },
+    {
+        header: "Actions",
+        accessor: "action",
+    },
+];
