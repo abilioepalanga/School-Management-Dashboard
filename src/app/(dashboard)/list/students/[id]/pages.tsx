@@ -103,3 +103,7 @@ const renderRow = (item: Student) => (
         </div>
     </div>
 </div>;
+{
+    /* LIST */
+}
+<Table columns={columns} renderRow={renderRow} data={studentsData} />;
