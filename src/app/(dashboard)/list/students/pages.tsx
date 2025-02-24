@@ -173,7 +173,10 @@ const SingleStudentPage = () => {
             </Link>
         </div>
     </div>
-</div>
+    </div>
+    <Performance />
+<Announcements />
+
 
 };
 
