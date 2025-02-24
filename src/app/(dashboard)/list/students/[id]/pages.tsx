@@ -107,3 +107,7 @@ const renderRow = (item: Student) => (
     /* LIST */
 }
 <Table columns={columns} renderRow={renderRow} data={studentsData} />;
+{
+    /* PAGINATION */
+}
+<Pagination />;
