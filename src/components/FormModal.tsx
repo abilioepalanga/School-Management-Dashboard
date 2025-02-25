@@ -20,6 +20,9 @@ const ParentForm = dynamic(() => import("./forms/ParentForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 
+const SubjectForm = dynamic(() => import("./forms/SubjectForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
 // Adicionar funções para cada tipo de `table` que você precisa
 const forms: {
     [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
@@ -29,8 +32,16 @@ const forms: {
     message: (type, data) => <MessageForm type={type} data={data} />, // Adicionando formulário de mensagem
     // Adicione outros formulários conforme necessário
     // Exemplo:
-    // parent: (type, data) => <ParentForm type={type} data={data} />,
-    // subject: (type, data) => <SubjectForm type={type} data={data} />
+    parent: (type, data) => <ParentForm type={type} data={data} />,
+    subject: (type, data) => (
+        <SubjectForm
+            type={type}
+            data={data}
+            onSubmit={(data) => {
+                /* handle submit */
+            }}
+        />
+    ),
     // etc...
 };
 
@@ -121,8 +132,8 @@ const FormModal = ({
                             <Image
                                 src="/close.png"
                                 alt="Close"
-                                width={14}
-                                height={14}
+                                width={24}
+                                height={24}
                             />
                         </div>
                     </div>
