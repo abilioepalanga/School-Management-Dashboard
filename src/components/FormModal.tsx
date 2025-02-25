@@ -23,6 +23,10 @@ const ParentForm = dynamic(() => import("./forms/ParentForm"), {
 const SubjectForm = dynamic(() => import("./forms/SubjectForm"), {
     loading: () => <h1>Loading...</h1>,
 });
+
+const ClassForm = dynamic(() => import("./forms/ClassForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
 // Adicionar funções para cada tipo de `table` que você precisa
 const forms: {
     [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
@@ -31,7 +35,20 @@ const forms: {
     student: (type, data) => <StudentForm type={type} data={data} />,
     message: (type, data) => <MessageForm type={type} data={data} />, // Adicionando formulário de mensagem
     // Adicione outros formulários conforme necessário
-    // Exemplo:
+    class: (type, data) => (
+        <ClassForm
+            type={type}
+            data={data}
+            onSubmit={function (data: {
+                name: string;
+                capacity: number;
+                grade: number;
+                supervisor: string;
+            }): void {
+                throw new Error("Function not implemented.");
+            }}
+        />
+    ),
     parent: (type, data) => <ParentForm type={type} data={data} />,
     subject: (type, data) => (
         <SubjectForm
