@@ -114,7 +114,47 @@ export const teachersData = [
         address: "123 Main St, Anytown, USA",
     },
 ];
+const role1 = "admin";
 
+const assignmentsData = [
+    {
+        id: 1,
+        subject: "Math",
+        class: "10A",
+        teacher: "Mr. Smith",
+        dueDate: "2023-10-10",
+    },
+    // Add more assignments as needed
+];
+
+const role2 = "admin";
+const eventsData = [
+    {
+        id: 1,
+        subject: "Math",
+        class: "10A",
+        teacher: "Mr. Smith",
+        dueDate: "2023-10-10",
+    },
+    // Add more assignments as needed
+];
+export { eventsData, role2 };
+
+// other imports and code
+
+export const announcementsData = [
+    // your announcements data here
+];
+
+export { assignmentsData, role1 };
+
+export const examsData = [
+    // your announcements data here
+];
+
+export const messagesData = [
+    // your messages data here
+];
 export const studentsData = [
     {
         id: 1,

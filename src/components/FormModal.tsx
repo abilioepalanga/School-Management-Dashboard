@@ -6,22 +6,44 @@ import { useState } from "react";
 
 // USE LAZY LOADING
 
-// import TeacherForm from "./forms/TeacherForm";
-// import StudentForm from "./forms/StudentForm";
-
 const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 const StudentForm = dynamic(() => import("./forms/StudentForm"), {
     loading: () => <h1>Loading...</h1>,
 });
+const MessageForm = dynamic(() => import("./forms/MessageForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
 
+// Adicionar funções para cada tipo de `table` que você precisa
 const forms: {
     [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
 } = {
     teacher: (type, data) => <TeacherForm type={type} data={data} />,
     student: (type, data) => <StudentForm type={type} data={data} />,
+    message: (type, data) => <MessageForm type={type} data={data} />, // Adicionando formulário de mensagem
+    // Adicione outros formulários conforme necessário
+    // Exemplo:
+    // parent: (type, data) => <ParentForm type={type} data={data} />,
+    // subject: (type, data) => <SubjectForm type={type} data={data} />
+    // etc...
 };
+
+type TableType =
+    | "teacher"
+    | "student"
+    | "parent"
+    | "subject"
+    | "class"
+    | "lesson"
+    | "exam"
+    | "assignment"
+    | "result"
+    | "attendance"
+    | "event"
+    | "announcement"
+    | "message"; // Adicionando "message" ao tipo TableType
 
 const FormModal = ({
     table,
@@ -29,19 +51,7 @@ const FormModal = ({
     data,
     id,
 }: {
-    table:
-        | "teacher"
-        | "student"
-        | "parent"
-        | "subject"
-        | "class"
-        | "lesson"
-        | "exam"
-        | "assignment"
-        | "result"
-        | "attendance"
-        | "event"
-        | "announcement";
+    table: TableType; // Alterado para usar o tipo TableType atualizado
     type: "create" | "update" | "delete";
     data?: any;
     id?: number;
@@ -57,21 +67,35 @@ const FormModal = ({
     const [open, setOpen] = useState(false);
 
     const Form = () => {
-        return type === "delete" && id ? (
-            <form action="" className="p-4 flex flex-col gap-4">
-                <span className="text-center font-medium">
-                    All data will be lost. Are you sure you want to delete this{" "}
-                    {table}?
-                </span>
-                <button className="bg-red-700 text-white py-2 px-4 rounded-md border-none w-max self-center">
-                    Delete
-                </button>
-            </form>
-        ) : type === "create" || type === "update" ? (
-            forms[table](type, data)
-        ) : (
-            "Form not found!"
-        );
+        // Verifique se o formulário existe para o `table` fornecido
+        if (type === "delete" && id) {
+            return (
+                <form action="" className="p-4 flex flex-col gap-4">
+                    <span className="text-center font-medium">
+                        All data will be lost. Are you sure you want to delete
+                        this {table}?
+                    </span>
+                    <button className="bg-red-700 text-white py-2 px-4 rounded-md border-none w-max self-center">
+                        Delete
+                    </button>
+                </form>
+            );
+        }
+
+        // Verifique se a chave `table` existe em `forms` e se é uma função
+        if (type === "create" || type === "update") {
+            if (forms[table]) {
+                return forms[table](type, data);
+            } else {
+                return (
+                    <div>
+                        <h1>Form for {table} not found!</h1>
+                    </div>
+                );
+            }
+        }
+
+        return "Form not found!";
     };
 
     return (
@@ -92,7 +116,7 @@ const FormModal = ({
                         >
                             <Image
                                 src="/close.png"
-                                alt=""
+                                alt="Close"
                                 width={14}
                                 height={14}
                             />
