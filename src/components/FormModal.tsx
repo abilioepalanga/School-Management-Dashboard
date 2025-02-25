@@ -16,6 +16,10 @@ const MessageForm = dynamic(() => import("./forms/MessageForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 
+const ParentForm = dynamic(() => import("./forms/ParentForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
+
 // Adicionar funções para cada tipo de `table` que você precisa
 const forms: {
     [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
