@@ -24,6 +24,10 @@ const SubjectForm = dynamic(() => import("./forms/SubjectForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 
+const LessonForm = dynamic(() => import("./forms/LessonForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
+
 const ClassForm = dynamic(() => import("./forms/ClassForm"), {
     loading: () => <h1>Loading...</h1>,
 });
@@ -35,6 +39,19 @@ const forms: {
     student: (type, data) => <StudentForm type={type} data={data} />,
     message: (type, data) => <MessageForm type={type} data={data} />, // Adicionando formulário de mensagem
     // Adicione outros formulários conforme necessário
+    Lesson: (type, data) => (
+        <LessonForm
+            type={type}
+            data={data}
+            onSubmit={function (data: {
+                teacher: string;
+                class: string;
+                subject: string;
+            }): void {
+                throw new Error("Function not implemented.");
+            }}
+        />
+    ),
     class: (type, data) => (
         <ClassForm
             type={type}
